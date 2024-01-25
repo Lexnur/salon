@@ -1,13 +1,17 @@
 from django.shortcuts import render
 
 
-def index(request): # Передать в context нужно только что-то одно
+def landing(request):
     context = {
         'home': 'Hair salon - Home',
-        'women': 'Hair salon - Women',
-        'men': 'Hair salon - Men',
-        'junior': 'Hair salon - Junior'
 
+    }
+    return render(request, 'landing.html', context)
+
+
+def index(request):
+    context = {
+        'women': 'Hair salon - For women',
     }
     return render(request, 'index.html', context)
 

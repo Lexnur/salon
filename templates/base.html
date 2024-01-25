@@ -31,8 +31,10 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>{{ title }}</title>
-    
+    <title>{% block title %}
+    	
+    {% endblock %}</title>
+
 </head>
 
 <body>
@@ -65,7 +67,7 @@
 					<span class="top--login"><i class="lnr lnr-exit"></i><a href="#">Login</a> / <a href="#">Register</a></span>
 					<span class="top--social">
 						<a class="facebook" href="#"><i class="fa fa-vk"></i></a>
-						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>						
+						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
 					    <a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
 					</span>
 				</div><!-- .col-md-6 end -->
@@ -84,12 +86,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				</button>
-				<a class="logo" href="index2.html">
+				<a class="logo" href="{% url 'index' %}">
 					<img class="logo-light" src="{% static "assets/images/logo/logo-light.png" %}" alt="Hairy Logo">
 					<img class="logo-dark" src="{% static "assets/images/logo/logo-light.png"%}" alt="Hairy Logo">
 				</a>
 			</div>
-			
+
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse pull-right" id="navbar-collapse-1">
 				<ul class="nav navbar-nav nav-pos-right nav-bordered-right snavbar-left">
@@ -327,7 +329,7 @@
     <!-- Slide #1 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="http://demo.zytheme.com/hairy/assets/images/sliders/slide-bg/1.jpg" alt="background">
+            <img src="{% static "assets/images/sliders/slide-bg/11.jpg" %}" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
@@ -353,7 +355,7 @@
     <!-- Slide #2 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="http://demo.zytheme.com/hairy/assets/images/sliders/slide-bg/2.jpg" alt="background">
+            <img src="{% static "assets/images/sliders/slide-bg/22v2.png" %}" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
@@ -379,7 +381,7 @@
     <!-- Slide #3 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="http://demo.zytheme.com/hairy/assets/images/sliders/slide-bg/3.jpg" alt="background">
+            <img src="{% static "assets/images/sliders/slide-bg/33.jpg" %}" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
@@ -406,8 +408,8 @@
 <!-- #slider end -->
 
 {% block index %}
-	
-{% endblock %}        
+
+{% endblock %}
 
 <!-- Footer #5
 ============================================= -->
@@ -523,7 +525,7 @@
                     <div class="social">
                         <a class="share-twitter" href="#"><i class="fa fa-twitter"></i></a>
                         <a class="share-facebook" href="#"><i class="fa fa-vk"></i></a>
-                        
+
                         <a class="share-pinterest" href="#"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
@@ -542,4 +544,4 @@
 <script src="{% static "assets/js/functions.js" %}"></script>
 </body>
 
-</html>        
+</html>

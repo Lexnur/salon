@@ -31,9 +31,7 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>{% block title %}
-    	
-    {% endblock %}</title>
+    <title>junior</title>
 
 </head>
 
@@ -101,7 +99,7 @@
     <ul class="dropdown-menu">
         <li><a href="{% url "landing" %}">Home</a></li>
         <li><a href="{% url "index" %}">For women</a></li>
-        <li><a href="{% url "men"%}">For men</a></li>
+        <li><a href="{% url "men" %}">For men</a></li>
         <li><a href="{% url "junior"%}">For junior</a></li>
         
     </ul>
@@ -412,7 +410,10 @@
     {% endblock %}
     
     {% block men %}  
-    {% endblock %}    
+    {% endblock %} 
+    
+    {% block junior %}    	
+    {% endblock %}
     
     {% block landing %}	
     {% endblock %}    

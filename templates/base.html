@@ -97,12 +97,12 @@
 				<ul class="nav navbar-nav nav-pos-right nav-bordered-right snavbar-left">
 				<!-- Home Menu -->
 <li class="has-dropdown active">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">home</a>
+    <a href="{% url "landing" %}">Home</a>
     <ul class="dropdown-menu">
         <li><a href="{% url "landing" %}">Home</a></li>
         <li><a href="{% url "index" %}">For women</a></li>
-        <li><a href="men.html">homepage 2</a></li>
-        <li><a href="homepage-3.html">homepage 3</a></li>
+        <li><a href="{% url "men"%}">For men</a></li>
+        <li><a href="{% url "junior"%}">For junior</a></li>
         
     </ul>
 </li>
@@ -408,13 +408,14 @@
 </section>
 <!-- #slider end -->
 
-{% block index %}
-
-{% endblock %}
+    {% block index %}
+    {% endblock %}
     
-{% block landing %}
-	
-{% endblock %}    
+    {% block men %}  
+    {% endblock %}    
+    
+    {% block landing %}	
+    {% endblock %}    
 
 <!-- Footer #5
 ============================================= -->

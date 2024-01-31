@@ -1,3 +1,15 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def shop(request):
+    context = {
+        'shop': 'Shop',
+    }
+    return render(request, 'shop-sidebar-left.html', context)
+
+
+def product(request):
+    context = {
+        'catalog': 'Catalog',
+    }
+    return render(request, 'shop-single.html', context)

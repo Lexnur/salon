@@ -195,16 +195,10 @@
 <!-- li end -->
 <!-- shop Menu -->
 <li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">shop</a>
-    <ul class="dropdown-menu">
+    <a href="{% url "shop" %}">shop</a>
+    <ul class="dropdown-menu">       
         <li>
-            <a href="shop-3columns.html">shop 3 columns</a>
-        </li>
-        <li>
-            <a href="shop-4columns.html">shop 4 columns</a>
-        </li>
-        <li>
-            <a href="shop-sidebar-left.html">shop products LS</a>
+            <a href="{% url "shop" %}">Shop home page</a>
         </li>
         <li>
             <a href="shop-sidebar-right.html">shop products RS</a>

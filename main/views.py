@@ -16,7 +16,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def men(request): # Передать в context нужно только что-то одно
+def men(request):
     context = {
         'men': 'Hair salon - For men',
 
@@ -24,7 +24,7 @@ def men(request): # Передать в context нужно только что-�
     return render(request, 'men.html', context)
 
 
-def junior(request): # Передать в context нужно только что-то одно
+def junior(request):
     context = {
         'junior': 'Hair salon - Junior'
     }

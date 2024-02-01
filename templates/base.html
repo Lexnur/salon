@@ -31,10 +31,8 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>{% block title %}
-    	
-    {% endblock %}</title>
-
+    <title>{{ title }}</title>   	
+    
 </head>
 
 <body>
@@ -196,7 +194,7 @@
 <!-- shop Menu -->
 <li class="has-dropdown">
     <a href="{% url "shop" %}">shop</a>
-    <ul class="dropdown-menu">       
+    <ul class="dropdown-menu">
         <li>
             <a href="{% url "shop" %}">Shop home page</a>
         </li>
@@ -328,13 +326,13 @@
     {% endblock %}
     
     {% block landing %}	
-    {% endblock %}   
-    
-    {% block shop %}    	
     {% endblock %}
-    
+
+    {% block shop %}
+    {% endblock %}
+
     {% block catalog %}
-    	
+
     {% endblock %}
 
 <!-- Footer #5

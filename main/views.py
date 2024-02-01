@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 def landing(request):
     context = {
-        'home': 'Hair salon - Home',
+        'title': 'Hair salon - Home',
 
     }
     return render(request, 'landing.html', context)
@@ -11,14 +11,14 @@ def landing(request):
 
 def index(request):
     context = {
-        'women': 'Hair salon - For women',
+        'title': 'Hair salon - For women',
     }
     return render(request, 'index.html', context)
 
 
 def men(request):
     context = {
-        'men': 'Hair salon - For men',
+        'title': 'Hair salon - For men',
 
     }
     return render(request, 'men.html', context)
@@ -26,7 +26,7 @@ def men(request):
 
 def junior(request):
     context = {
-        'junior': 'Hair salon - Junior'
+        'title': 'Hair salon - Junior'
     }
     return render(request, 'junior.html', context)
 

@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from shop.models import Categories
 
 
 def landing(request):
+    categories = Categories.objects.all()
     context = {
         'title': 'Hair salon - Home',
-
+        'categories': categories
     }
     return render(request, 'landing.html', context)
 

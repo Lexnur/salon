@@ -195,21 +195,9 @@
 <li class="has-dropdown">
     <a href="{% url "shop" %}">shop</a>
     <ul class="dropdown-menu">
-        <li>
-            <a href="{% url "shop" %}">Shop home page</a>
-        </li>
-        <li>
-            <a href="shop-sidebar-right.html">shop products RS</a>
-        </li>
-        <li>
-            <a href="shop-single.html">shop single</a>
-        </li>
-        <li>
-            <a href="shop-cart.html">shop cart</a>
-        </li>
-        <li>
-            <a href="shop-checkout.html">shop checkout</a>
-        </li>
+        {% for category in categories %}        	                
+            <li><a href="{% url "shop" %}">{{ category.name }}</a></li>        
+        {% endfor %}
     </ul>
 </li>
 <!-- li end -->

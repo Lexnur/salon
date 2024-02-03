@@ -42,12 +42,12 @@
         <div class="row mb-70">
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="product-img">
-                    <img class="img-responsive" src="{% static "assets/images/shop/full/1.jpg" %}" alt="product image">
+                    <img class="img-responsive" src="{{ goods.image.url }}" alt="{{ goods.name }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-1">
                 <div class="product-title">
-                    <h3>SS Black Razor</h3>
+                    <h3>{{ goods.name }}</h3>
                 </div>
                 <div class="product-review text-center-xs mb-40">
                     <span class="product-rating">
@@ -63,7 +63,7 @@
                 <!-- .product-title end -->
                 <div class="product-meta mb-20">
                     <span class="product-price">
-                $ 89.00
+                        <strong> {{ goods.discount_price }} ₽ </strong>
             </span>
                     <span class="product-available">
                 Availability: <span> In Stock</span>
@@ -72,7 +72,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="product-desc">
-                    <p>Duis ipsum dolor sit amet, consecter adipis elite, sedo eiusmod tempor incididunt ut labor et dolor magna aliquaeni minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                    <p> {{ goods.description }} </p>
                 </div>
                 <!-- .product-desc end -->
                 <div class="product-action clearfix">

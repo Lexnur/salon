@@ -1,12 +1,9 @@
 from django.shortcuts import render
-from shop.models import Categories
 
 
 def landing(request):
-    categories = Categories.objects.all()
     context = {
         'title': 'Hair salon - Home',
-        'categories': categories
     }
     return render(request, 'landing.html', context)
 
@@ -21,7 +18,6 @@ def index(request):
 def men(request):
     context = {
         'title': 'Hair salon - For men',
-
     }
     return render(request, 'men.html', context)
 

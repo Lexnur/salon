@@ -11,8 +11,8 @@ def shop(request):
     return render(request, 'shop-sidebar-left.html', context)
 
 
-def product(request, product_id):
-    goods = Products.objects.get(id=product_id)
+def product(request, goods_slug):
+    goods = Products.objects.get(slug=goods_slug)
     context = {
         'title': 'Single product',
         'goods': goods,

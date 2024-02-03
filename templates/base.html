@@ -194,11 +194,11 @@
 <!-- li end -->
 <!-- shop Menu -->
 <li class="has-dropdown">
-    <a href="{% url "shop" %}">shop</a>
+    <a href="{% url "shop:shop" %}">shop</a>
     <ul class="dropdown-menu">
         {% tag_categories as categories %}
         {% for category in categories %}        	                
-            <li><a href="{% url "shop" %}">{{ category.name }}</a></li>        
+            <li><a href="{% url "shop:shop" %}">{{ category.name }}</a></li>        
         {% endfor %}
     </ul>
 </li>

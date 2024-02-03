@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Categories(models.Model):
@@ -34,3 +35,6 @@ class Products(models.Model):
         if self.discount:
             return round(self.price - self.price*self.discount/100, 2)
         return self.price
+
+    def get_absolute_url(self):
+        return reverse("shop:product", kwargs={"goods_slug": self.slug})

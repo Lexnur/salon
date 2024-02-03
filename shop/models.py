@@ -21,7 +21,7 @@ class Products(models.Model):
     price = models.DecimalField(default=0.00, max_digits=7, decimal_places=2, verbose_name='Цена')
     discount = models.DecimalField(default=0.00, max_digits=7, decimal_places=2, verbose_name='Скидка в %')
     # quantity = models.PositiveIntegerField(default=0, verbose_name='Количество')
-    category = models.ForeignKey(Categories, on_delete=models.CASCADE, verbose_name='Категория')
+    category = models.ForeignKey(to=Categories, on_delete=models.CASCADE, verbose_name='Категория')
 
     class Meta:
         verbose_name = "Продукт"
@@ -29,3 +29,8 @@ class Products(models.Model):
 
     def __str__(self):
         return self.name
+
+    def discount_price(self):
+        if self.discount:
+            return round(self.price - self.price*self.discount/100, 2)
+        return self.price

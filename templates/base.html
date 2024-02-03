@@ -1,4 +1,5 @@
 {% load static %}
+{% load shop_tags %}
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
@@ -195,6 +196,7 @@
 <li class="has-dropdown">
     <a href="{% url "shop" %}">shop</a>
     <ul class="dropdown-menu">
+        {% tag_categories as categories %}
         {% for category in categories %}        	                
             <li><a href="{% url "shop" %}">{{ category.name }}</a></li>        
         {% endfor %}

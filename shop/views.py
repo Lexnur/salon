@@ -1,18 +1,24 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_list_or_404
 from shop.models import Products
 
 
-def shop(request, category_slug):
-    if category_slug == 'all':
+def shop(request, category_slug, page=1):
+    if category_slug == 'all':  # Отображать главную страницу при slug == 'all'
         products = Products.objects.all()
     else:
         products = get_list_or_404(Products.objects.filter(category__slug=category_slug))
     # products = Products.objects.all()
+
+    paginator = Paginator(products, 3)  # Какое кол-во товаров отображать на каждой странице
+    page = paginator.page(page)
+
     context = {
         'title': 'Shop home page',
-        'products': products,
-
+        'products': page,
+        'slug_url': category_slug,
     }
+
     return render(request, 'shop-sidebar-left.html', context)
 
 

@@ -27,13 +27,14 @@ class Products(models.Model):
     class Meta:
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
+        ordering = ("id",)  # Сортировка товаров по id
 
     def __str__(self):
         return self.name
 
-    def discount_price(self):
+    def discount_price(self):  # Расчет скидки товара
         if self.discount:
-            return round(self.price - self.price*self.discount/100, 2)
+            return round(self.price - self.price * self.discount / 100, 2)
         return self.price
 
     def get_absolute_url(self):

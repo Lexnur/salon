@@ -1,12 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404
 from shop.models import Products
 
 
-def shop(request):
-    products = Products.objects.all()
+def shop(request, category_slug):
+    if category_slug == 'all':
+        products = Products.objects.all()
+    else:
+        products = get_list_or_404(Products.objects.filter(category__slug=category_slug))
+    # products = Products.objects.all()
     context = {
         'title': 'Shop home page',
-        'products': products
+        'products': products,
+
     }
     return render(request, 'shop-sidebar-left.html', context)
 

@@ -3,7 +3,8 @@ from django.shortcuts import render, get_list_or_404
 from shop.models import Products
 
 
-def shop(request, category_slug, page=1):
+def shop(request, category_slug):
+    page = request.GET.get('page', 1)
     if category_slug == 'all':  # Отображать главную страницу при slug == 'all'
         products = Products.objects.all()
     else:
@@ -11,7 +12,7 @@ def shop(request, category_slug, page=1):
     # products = Products.objects.all()
 
     paginator = Paginator(products, 3)  # Какое кол-во товаров отображать на каждой странице
-    page = paginator.page(page)
+    page = paginator.page(int(page))
 
     context = {
         'title': 'Shop home page',

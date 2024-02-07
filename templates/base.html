@@ -198,7 +198,7 @@
     <ul class="dropdown-menu">
         {% tag_categories as categories %}
         {% for category in categories %}        	                
-            <li><a href="{% url "shop:shop" category.slug %}">{{ category.name }}</a></li>
+            <li><a href="{% url "shop:shop" category.slug %}">{{ category.name   }}</a></li>
         {% endfor %}
     </ul>
 </li>
@@ -273,9 +273,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-                        <form class="form-search">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <button class="btn" type="button"><i class="lnr lnr-magnifier"></i></button>
+                        <form class="form-search" action="{% url 'shop:search' %}" method='get' >
+                            <input type="search" class="form-control" name="q" placeholder="Search...">
+                            <button class="btn" type="submit"><i class="lnr lnr-magnifier"></i></button>
                         </form>
                         <!-- .form-search end -->
                     </div>

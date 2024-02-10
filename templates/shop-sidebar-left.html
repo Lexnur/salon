@@ -235,13 +235,10 @@
                             	    
                             	    <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
 {#                                {% endif %} #}
-                            {% endfor %}
-                        
+                            {% endfor %}                        
 {#                            <li class="page-item {% if not products.has_next %} disable {% endif %}">#}
-                               <li> <a class="pagination-next" 
-                                       href="{% if products.has_next %}?page={{ products.next_page_numer }} 
-                                            {% endif %}" aria-label="Next">
-                               <span aria-hidden="true">next <i class="fa fa-angle-right"></i></span>
+                               <li> <a class="pagination-next" href="{% if products.has_next %}?page={{ products.next_page_number }}{% endif %}" aria-label="Next">                                           
+                               <span aria-hidden="true">next <i class="fa fa-angle-right"></i></span>                                  
 				                    </a>
                                </li>
                         </ul>

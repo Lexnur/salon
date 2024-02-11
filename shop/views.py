@@ -13,7 +13,7 @@ def shop(request, category_slug=None):
         products = q_search(query)
     else:
         products = get_list_or_404(Products.objects.filter(category__slug=category_slug))
-    paginator = Paginator(products, 3)  # Какое кол-во товаров отображать на каждой странице
+    paginator = Paginator(products, 9)  # Какое кол-во товаров отображать на каждой странице
     page = paginator.page(int(page))
     context = {
         'title': 'Shop home page',

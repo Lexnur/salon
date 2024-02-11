@@ -1574,7 +1574,7 @@ ul.dot-list li i {
   border: none;
 }
 .tabs .tab-content > .tab-pane {
-  padding-top: 27px;
+  padding-top: 127px;
 }
 .tabs .tab-content > .tab-pane p {
   font-size: 15px;
@@ -1656,7 +1656,7 @@ ul.dot-list li i {
   padding-top: 0;
 }
 .tabs-vertical.tabs .tab-content > .tab-pane p {
-  color: #a5a5a5;
+  color: #c6a6c6;
   font-size: 16px;
   font-weight: 300;
   line-height: 26px;
@@ -2958,7 +2958,7 @@ ul.dropdown-menu > li.has-dropdown > a:before {
     -moz-transition: all 0.35s;
     -webkit-transition: all 0.35s;
     transition: all 0.35s;
-    /*text-transform: capitalize;*/
+    /* text-transform: capitalize;*/
     margin: 0 21px;
   }
   ul.mega-menu li ul li span {
@@ -5630,7 +5630,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
 .cart-product-action form {
   margin-bottom: 0;
   width: 269px;
-  height: 40px;
+  height: 50px;
   overflow: hidden;
 }
 .cart-product-action .form-control {
@@ -5811,7 +5811,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
 }
 .product--img img {
   max-width: 100%;
-  height: auto;
+  height: 300px;
   width: 100%;
 }
 .product--img .product--hover {
@@ -5884,7 +5884,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
 }
 .product--content .product--price {
   color: #999999;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   font-family: 'Open Sans', sans-serif;
   line-height: 1;
@@ -5984,12 +5984,12 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
 }
 /* Shop Single */
 .shop-product .product-img {
-  height: 400px;
+  height: auto;
   overflow: hidden;
 }
 .shop-product .product-img img {
-  width: 100%;
-  max-height: 400px;
+  width: auto;
+  max-height: auto;
   height: auto;
 }
 .shop-product .product-title h3 {
@@ -5998,7 +5998,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   font-size: 36px;
   font-weight: 700;
   line-height: 1;
-  text-transform: capitalize;
+  text-transform: None;
   margin-bottom: 16px;
 }
 .shop-product .product-price {
@@ -6011,7 +6011,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   margin-right: 44px;
 }
 .shop-product .product-available {
-  color: #999999;
+  color: #228b22;
   font-size: 14px;
   font-weight: 400;
   font-family: 'Open Sans', sans-serif;
@@ -6043,8 +6043,8 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   color: #bb8c4b;
 }
 .shop-product .product-desc p {
-  color: #999999;
-  font-size: 14px;
+  color: #333333;
+  font-size: 16px;
   line-height: 24px;
   margin-bottom: 40px;
 }
@@ -6120,6 +6120,19 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   line-height: 43px;
   text-transform: uppercase;
 }
+/* Оформление скидки в картинке*/
+.badge.bg-warning.text-dark {
+  position: absolute;
+  color: #0de01c;
+  top: 10px;
+  right: 5px;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 1rem;
+  box-shadow: 2px 2px 15px 9px #000000;
+}
+
 .shop-product .product-share a {
   font-size: 14px;
   font-weight: 400;
@@ -6347,8 +6360,19 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
 .product-details .table > tbody > tr td {
   width: 300px;
 }
+
+.text-green {
+  color: #32CD32;
+  font-weight: bold;
+}
+
+.text-red {
+  color: #DC143C;
+  font-weight: bold;
+}
+
 .product-details table tbody tr td:last-of-type {
-  color: #999999;
+  /*color: #999999;*/
 }
 .shop-product .product-details .table > tbody > tr > td {
   padding: 0 0 30px 0;

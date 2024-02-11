@@ -188,7 +188,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-4 product-item">
                         <div class="product--img">
                             {% if product.image %}                      
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" />                                
                             {% else %}
                                 <img src="{% static "assets/images/shop/not_found/not_found.jfif"%}" alt="{{ product.name }}" />
                             {% endif %} 
@@ -208,8 +208,8 @@
                             <div class="product--price">
                                 {% if product.discount %}
                                     <span><s>{{ product.price }} ₽</s></span>
-                                    <strong> {{ product.discount_price }} ₽</strong>
-                                    <span class="badge bg-warning text-dark"> Скидка  {{ product.discount }} %</span>
+                                     <span class="text-green"> <strong>{{ product.discount_price }} ₽</strong></span>
+                                    <div class="badge bg-warning text-dark"> Скидка  {{ product.discount }} %</div>
                                 {% else %}
                                      <strong> {{ product.price }} ₽ </strong>
                                 {% endif %} 

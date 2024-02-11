@@ -59,22 +59,26 @@
                     </span>
                     <span>(3 customer review)</span>
                 </div>
-                <!--- .product-review end -->
-                <!-- .product-title end -->
-                <div class="product-meta mb-20">
-                    <span class="product-price">
-                        <strong> {{ goods.discount_price }} ₽ </strong>
-            </span>
-                    <span class="product-available">
-                Availability: <span> In Stock</span>
-                    </span>
-                    <!-- .product-price end -->
-                    <div class="clearfix"></div>
-                </div>
+                <!--- .product-review end --> 
                 <div class="product-desc">
                     <p> {{ goods.description }} </p>
                 </div>
-                <!-- .product-desc end -->
+                <!-- .product-title end -->
+                <div class="product-meta mb-20">
+                    <span class="product-price">
+                        {% if goods.discount %}
+                            <strong>Цена со скидкой: {{ goods.discount_price }}</strong>
+                        	    {% else %} <strong> Цена: {{ goods.discount_price }} ₽ </strong>
+                        {% endif %}                         
+                    </span> 
+                </div>
+                <!-- .product-price end -->               
+{#                <div class="product-available">                #}
+{#                <strong>Товар: {% if goods.availability %} {{ 'В наличии' }}  {% else %} {{ 'Скоро появится' }} {% endif %}  #}
+{#                </strong>#}
+{#                </div>                    #}
+{#                <!-- .product-desc end -->#}
+                <p></p>
                 <div class="product-action clearfix">
                     <div class="product-quantity pull-left">
                         <span>
@@ -90,10 +94,9 @@
                 <!-- .product-action end -->
                 <!-- .product-action end -->
                 <div class="product-share mt-30">
-                    <a class="share-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                    <a class="share-vk" href="#"><i class="fa fa-vk"></i></a>
                     <a class="share-twitter" href="#"><i class="fa fa-twitter"></i></a>
-                    <a class="share-google-plus" href="#"><i class="fa fa-google-plus"></i></a>
-                    <a class="share-linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                    <a class="share-google-plus" href="#"><i class="fa fa-google-plus"></i></a>                   
                 </div>
                 <!-- .product-share end -->
 
@@ -108,8 +111,8 @@
                 <div class="product-tabs">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#information" aria-controls="information" role="tab" data-toggle="tab">information</a></li>
-                        <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">reviews(3)</a></li>
+                        <li role="presentation" class="active"><a href="#information" aria-controls="information" role="tab" data-toggle="tab">Информация</a></li>
+                        <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Отзывы(3)</a></li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -119,26 +122,30 @@
                                 <div class="col-xs-12 col-sm-12 col-md-3">
                                     <table class="table no-border">
                                         <tbody>
+                                            {% if goods.brand %}                                     
                                             <tr>
-                                                <td>Brand:</td>
-                                                <td>Feather</td>
+                                                <td>Производитель:</td>
+                                                <td><strong>{{ goods.brand }}</strong></td>
+                                             {% endif %}     
                                             </tr>
+                                            {% if goods.series %}                                      
                                             <tr>
-                                                <td>Color:</td>
-                                                <td>Black</td>
+                                                <td>Серия:</td>
+                                                <td><strong>{{ goods.series }}</strong></td>
+                                            {% endif %}     
                                             </tr>
+                                            {% if goods.volume %}                                      
                                             <tr>
-                                                <td>Handle length:</td>
-                                                <td>120mm</td>
-                                            </tr>
+                                                <td>Объем:</td>
+                                                <td><strong>{{ goods.volume }} мл</strong></td>
+                                            {% endif %}     
+                                            </tr>                                                                                 
                                             <tr>
-                                                <td>Blade length:</td>
-                                                <td>50mm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Full length:</td>
-                                                <td>150mm</td>
-                                            </tr>
+                                                <td>Наличие:</td>
+                                                <td class="text-green">{% if goods.availability %} <div class="text-green"> {{ 'В наличии' }} </div>  
+                                                {% else %} <div class="text-red"> {{ 'Отсутствует' }} {% endif %} </div>
+                                                </td>                                              
+                                            </tr>                                            
                                         </tbody>
                                     </table>
                                 </div>

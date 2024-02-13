@@ -213,8 +213,6 @@
                                 {% else %}
                                      <strong> {{ product.price }} ₽ </strong>
                                 {% endif %} 
-                                
-{#                                <span>{{ product.price }} ₽</span>#}
                             </div>
                             <!-- .product-price end -->
                         </div>
@@ -228,17 +226,11 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 clearfix mt-50 text--center">
                         <ul class="pagination">
-                            {% for page in products.paginator.page_range %}
-{#                                {% if page >= products.number|add: -2 and page <= products.number|add: 2 %}                                	                                #}
-                            	    
-{#                                    <li class="this-page" {% if products.number == page %}  {% endif %}></li>                  	    	#}
-                            	    
-                            	    <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
-{#                                {% endif %} #}
-                            {% endfor %}                        
-{#                            <li class="page-item {% if not products.has_next %} disable {% endif %}">#}
+                            {% for page in products.paginator.page_range %}                           
+                                <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+                            {% endfor %}  
                                <li> <a class="pagination-next" href="{% if products.has_next %}?page={{ products.next_page_number }}{% endif %}" aria-label="Next">                                           
-                               <span aria-hidden="true">next <i class="fa fa-angle-right"></i></span>                                  
+                               <span aria-hidden="true">Следующая <i class="fa fa-angle-double-right"></i></span>                                  
 				                    </a>
                                </li>
                         </ul>

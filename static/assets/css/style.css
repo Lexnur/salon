@@ -1792,10 +1792,10 @@ ul.dot-list li i {
   background-color: transparent;
   color: #333333;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   border-color: #dadada;
-  text-transform: uppercase;
+  text-transform: None;
   padding: 0;
   width: 35px;
   height: 35px;

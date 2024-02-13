@@ -1,3 +1,5 @@
+from django.contrib.postgres.search import SearchVector
+
 from shop.models import Products
 from django.db.models import Q
 
@@ -6,9 +8,12 @@ from django.db.models import Q
 
 
 def q_search(query):
-    keyword = [word for word in query.split() if len(word) >= 1]
-    q_object = Q()
-    for token in keyword:
-        q_object |= Q(description__icontains=token)
-        q_object |= Q(name__icontains=token)
-    return Products.objects.filter(q_object)
+    return Products.objects.annotate(search=SearchVector('name', 'description')).filter(search=query)
+
+
+    # keyword = [word for word in query.split() if len(word) >= 1]
+    # q_object = Q()
+    # for token in keyword:
+    #     q_object |= Q(description__icontains=token)
+    #     q_object |= Q(name__icontains=token)
+    # return Products.objects.filter(q_object)

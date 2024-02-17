@@ -86,8 +86,8 @@
 				<span class="icon-bar"></span>
 				</button>
 				<a class="logo" href="{% url 'landing' %}">
-					<img class="logo-light" src="{% static "assets/images/logo/logo-light.png" %}" alt="Hairy Logo">
-					<img class="logo-dark" src="{% static "assets/images/logo/logo-light.png"%}" alt="Hairy Logo">
+					<img class="logo-light" src="{% static "assets/images/logo/sunrise.png" %}" alt="Hairy Logo">
+					<img class="logo-dark" src="{% static "assets/images/logo/sunrise.png"%}" alt="Hairy Logo">
 				</a>
 			</div>
 
@@ -325,8 +325,14 @@
     
     {% block user %}    	
     {% endblock %}
+
+    {% block register %}
+    {% endblock %}
     
-    {% block register %}    	
+    {% block shop_cart %}    	
+    {% endblock %}
+    
+    {% block checkout %}    	
     {% endblock %}
 
 <!-- Footer #5

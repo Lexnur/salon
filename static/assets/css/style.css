@@ -1014,7 +1014,7 @@ blockquot {
   font-size: 14px;
   font-weight: 400;
   line-height: 1;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .breadcrumb > li + li:before,
 .breadcrumb > li a {
@@ -7957,13 +7957,14 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
 .page-title .title--heading {
   margin-bottom: 20px;
 }
+/*Отвечает за текст в Page Title*/
 .page-title .title--heading h1 {
   color: #ffffff;
   font-size: 60px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .page-title .title--desc p {
   color: #f9f9f9;
@@ -11205,3 +11206,5 @@ body.overlay__active::before,
 .mr-30 {
   margin-right: 3rem;
 }
+
+/*Button shop*/

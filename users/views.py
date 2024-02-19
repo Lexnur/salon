@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from users.forms import UserLoginForm
+from users.forms import UserLoginForm, UserRegistrationForm
 
 
 def login(request):
@@ -20,14 +20,24 @@ def login(request):
         form = UserLoginForm()
     context = {
         'title': 'Авторизация',
-        'form': form,
-        }
+        'form': form
+    }
     return render(request, 'login.html', context)
 
 
 def register(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.instance
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse('landing'))
+    else:
+        form = UserRegistrationForm()
     context = {
         'title': 'Регистрация',
+        'form': form
     }
     return render(request, 'register.html', context)
 
@@ -47,4 +57,5 @@ def shop_cart(request):
 
 
 def logout(request):
-    pass
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('landing'))

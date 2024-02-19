@@ -61,10 +61,14 @@
 							<i class="lnr lnr-phone-handset"></i> <span>+7-920-***-**-**</span>
 						</li>
 					</ul>
-				</div><!-- .col-md-6 end -->
-				<div class="col-xs-12 col-sm-6 col-md-6 top--info text-right text-center-xs">
-					<span class="top--login"><i class="lnr lnr-exit"></i><a href="{% url "users:login" %}">Login</a> / <a href="{% url 'users:register' %}">Register</a></span>
-					<span class="top--social">
+				</div><!-- .col-md-6 end -->				
+                    <div class="col-xs-12 col-sm-6 col-md-6 top--info text-right text-center-xs">
+                {% if not user.is_authenticated %}        
+					<span class="top--login"><i class="lnr lnr-enter"></i><a href="{% url "users:login" %}">Login</a> / <a href="{% url 'users:register' %}">Register</a></span>
+				{% else %}
+                    <span class="top--login">Добро пожаловать, {{ user }} <i></i><a href="{% url "users:logout" %}">Выйти  <i class="lnr lnr-exit"></i></a></span>
+                {% endif %}
+					<span class="top--social">			 
 						<a class="vk" href="#"><i class="fa fa-vk"></i></a>
 						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
 					    <a class="instagram" href="#"><i class="fa fa-instagram"></i></a>
@@ -118,76 +122,78 @@
     </ul>
 </li>
 <!-- li end -->
-<!-- Features Menu-->
+{#<!-- Features Menu-->#}
+{#<li class="has-dropdown">#}
+{#    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">elements</a>#}
+{#    <ul class="dropdown-menu">#}
+{#        <li><a href="elements-buttons.html">buttons</a></li>#}
+{#        <li><a href="elements-columns-grids.html">grid system</a></li>#}
+{#        <li><a href="elements-typography.html">typography</a></li>#}
+{#        <li><a href="elements-form.html">forms</a></li>#}
+{#        <li><a href="elements-heading.html">heading</a></li>#}
+{#    </ul>#}
+{#</li>#}
+{#<!-- li end -->#}
+{#<!-- Gallery Menu-->#}
+{#<li class="has-dropdown">#}
+{#    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">Gallery</a>#}
+{#    <ul class="dropdown-menu">#}
+{#        <li><a href="gallery-3cols.html">gallery 3 columns</a></li>#}
+{#        <li><a href="gallery-4cols.html">gallery 4 columns</a></li>#}
+{#        <li><a href="gallery-masonry.html">gallery masonry</a></li>#}
+{#        <li><a href="gallery-single-images.html">single images</a></li>#}
+{#        <li><a href="gallery-single-slider.html">single slider</a></li>#}
+{#    </ul>#}
+{#</li>#}
+{#<!-- li end -->#}
+<!-- Account Menu-->
 <li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">elements</a>
-    <ul class="dropdown-menu">
-        <li><a href="elements-buttons.html">buttons</a></li>
-        <li><a href="elements-columns-grids.html">grid system</a></li>
-        <li><a href="elements-typography.html">typography</a></li>
-        <li><a href="elements-form.html">forms</a></li>
-        <li><a href="elements-heading.html">heading</a></li>
-    </ul>
-</li>
-<!-- li end -->
-<!-- Gallery Menu-->
-<li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">Gallery</a>
-    <ul class="dropdown-menu">
-        <li><a href="gallery-3cols.html">gallery 3 columns</a></li>
-        <li><a href="gallery-4cols.html">gallery 4 columns</a></li>
-        <li><a href="gallery-masonry.html">gallery masonry</a></li>
-        <li><a href="gallery-single-images.html">single images</a></li>
-        <li><a href="gallery-single-slider.html">single slider</a></li>
-    </ul>
-</li>
-<!-- li end -->
-<!-- Blog Menu-->
-<li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">Blog</a>
+    <a data-toggle="dropdown" class="dropdown-toggle menu-item">Мой профиль</a>
     <ul class="dropdown-menu">
         <li class="dropdown-submenu">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">blog grid</a>
+            <a data-toggle="dropdown" class="dropdown-toggle">Аккаунт</a>
             <ul class="dropdown-menu">
+                {% if not user.is_authenticated %}
                 <li>
-                    <a href="blog-grid.html">fullwidth</a>
-                </li>
+                    <a href="{% url 'users:register' %}">Зарегистрировать</a>
+                </li>                
                 <li>
-                    <a href="blog-grid-sidebar-left.html">left sidebar</a>
+                    <a href="{% url 'users:login' %}">Войти</a>
                 </li>
+                {% else %}
                 <li>
-                    <a href="blog-grid-sidebar-right.html">right sidebar</a>
+                    <a href="{% url 'users:logout' %}">Выйти</a>
                 </li>
+                {% endif %}
             </ul>
         </li>
         <li class="dropdown-submenu">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">blog masonry</a>
+            <a href="{% url 'users:shop_cart' %}" data-toggle="dropdown" class="dropdown-toggle">Корзина</a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="blog-masonry.html">fullwidth</a>
+                    <a href="{% url 'users:checkout' %}">Оформить заказ</a>
                 </li>
-                <li>
-                    <a href="blog-masonry-sidebar-left.html">left sidebar</a>
-                </li>
-                <li>
-                    <a href="blog-masonry-sidebar-right.html">right sidebar</a>
-                </li>
+{#                <li>#}
+{#                    <a href="blog-masonry-sidebar-left.html">left sidebar</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="blog-masonry-sidebar-right.html">right sidebar</a>#}
+{#                </li>#}
             </ul>
         </li>
-        <li class="dropdown-submenu">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">blog standard</a>
+        {% if user.is_admin or user.is_staff %} 
+        <li class="dropdown-submenu">                       
+            <a data-toggle="dropdown" class="dropdown-toggle">Админ панель</a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="blog-standard-sidebar-left.html">left sidebar</a>
+                    <a href="{% url "admin:index" %}">Войти</a>
                 </li>
                 <li>
-                    <a href="blog-standard-sidebar-right.html">right sidebar</a>
+                    <a href="{% url 'users:logout' %}">Выйти</a>
                 </li>
-            </ul>
+            </ul>            
         </li>
-        <li>
-            <a href="blog-single.html">blog single</a>
-        </li>
+        {% endif %}
     </ul>
 </li>
 <!-- li end -->
@@ -303,6 +309,7 @@
 	</nav>
 
 </header>
+
 
 
     {% block index %}
@@ -459,6 +466,9 @@
 </footer>
 </div>
 <!-- #wrapper end -->
+    
+    
+     
 <!-- Footer Scripts
 ============================================= -->
 <script src="{% static "assets/js/jquery-2.2.4.min.js" %}"></script>

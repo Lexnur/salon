@@ -1013,7 +1013,7 @@ blockquot {
   color: #e5e4e4;
   font-size: 14px;
   font-weight: 400;
-  line-height: none;
+  line-height: 1;
   text-transform: none;
 }
 .breadcrumb > li + li:before,
@@ -3825,7 +3825,7 @@ ul.dropdown-menu > li.has-dropdown > a:before {
   font-weight: 700;
   line-height: 45px;
   margin-bottom: 0;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .slider .slide--headline {
   color: #ffffff;
@@ -3834,7 +3834,7 @@ ul.dropdown-menu > li.has-dropdown > a:before {
   font-weight: 700;
   line-height: 80px;
   margin-bottom: 20px;
-  text-transform: capitalize;
+  text-transform: none;
 }
 .slider .slide--headline.extend {
   line-height: 1.2;

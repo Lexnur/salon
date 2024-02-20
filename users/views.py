@@ -2,7 +2,7 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-
+from django.contrib.auth.decorators import login_required
 from users.forms import UserLoginForm, UserRegistrationForm
 
 
@@ -56,6 +56,7 @@ def shop_cart(request):
     return render(request, 'shop-cart.html', context)
 
 
+@login_required
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('landing'))

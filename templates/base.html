@@ -102,50 +102,24 @@
 <li class="has-dropdown active">
     <a href="{% url "landing" %}">Главная</a>
     <ul class="dropdown-menu">
-        <li><a href="{% url "landing" %}">На главную страницу</a></li>
-        <li><a href="{% url "men" %}">Для мужчин</a></li>
-        <li><a href="{% url "index" %}">Для женщин</a></li>
-        <li><a href="{% url "junior"%}">Для детей</a></li>        
+        <li><a href="{% url "landing" %}">На главную</a></li>
+        <li><a href="{% url "men" %}">Мужские стрижки</a></li>
+        <li><a href="{% url "index" %}">Женские стрижки</a></li>
+        <li><a href="{% url "junior"%}">Детские стрижки</a></li>        
     </ul>
 </li>
 <!-- li end -->
 <!-- Pages Menu -->
 <li class="has-dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle link-hover" data-hover="pages">pages</a>
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle link-hover" data-hover="pages">О нас</a>
     <ul class="dropdown-menu">
-        <li><a href="page-about-us.html">about us</a></li>
-        <li><a href="page-book-online.html">book online</a></li>
-        <li><a href="page-our-staff.html">our staff</a></li>
-        <li><a href="page-services.html">our services</a></li>
-        <li><a href="page-contact.html">contact us</a></li>
-        <li><a href="page-404.html">404</a></li>
+        <li><a href="page-about-us.html">О нас</a></li>
+        <li><a href="page-book-online.html">Онлайн запись</a></li>
+{#        <li><a href="page-our-staff.html">our staff</a></li>#}
+{#        <li><a href="page-services.html">our services</a></li>#}
+        <li><a href="page-contact.html">Написать нам</a></li>
     </ul>
 </li>
-<!-- li end -->
-{#<!-- Features Menu-->#}
-{#<li class="has-dropdown">#}
-{#    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">elements</a>#}
-{#    <ul class="dropdown-menu">#}
-{#        <li><a href="elements-buttons.html">buttons</a></li>#}
-{#        <li><a href="elements-columns-grids.html">grid system</a></li>#}
-{#        <li><a href="elements-typography.html">typography</a></li>#}
-{#        <li><a href="elements-form.html">forms</a></li>#}
-{#        <li><a href="elements-heading.html">heading</a></li>#}
-{#    </ul>#}
-{#</li>#}
-{#<!-- li end -->#}
-{#<!-- Gallery Menu-->#}
-{#<li class="has-dropdown">#}
-{#    <a href="#" data-toggle="dropdown" class="dropdown-toggle menu-item">Gallery</a>#}
-{#    <ul class="dropdown-menu">#}
-{#        <li><a href="gallery-3cols.html">gallery 3 columns</a></li>#}
-{#        <li><a href="gallery-4cols.html">gallery 4 columns</a></li>#}
-{#        <li><a href="gallery-masonry.html">gallery masonry</a></li>#}
-{#        <li><a href="gallery-single-images.html">single images</a></li>#}
-{#        <li><a href="gallery-single-slider.html">single slider</a></li>#}
-{#    </ul>#}
-{#</li>#}
-{#<!-- li end -->#}
 <!-- Account Menu-->
 <li class="has-dropdown">
     <a data-toggle="dropdown" class="dropdown-toggle menu-item">Мой профиль</a>
@@ -168,17 +142,14 @@
             </ul>
         </li>
         <li class="dropdown-submenu">
-            <a href="{% url 'users:shop_cart' %}" data-toggle="dropdown" class="dropdown-toggle">Корзина</a>
+            <a data-toggle="dropdown" class="dropdown-toggle">Добавленные товары</a>
             <ul class="dropdown-menu">
                 <li>
                     <a href="{% url 'users:checkout' %}">Оформить заказ</a>
                 </li>
-{#                <li>#}
-{#                    <a href="blog-masonry-sidebar-left.html">left sidebar</a>#}
-{#                </li>#}
-{#                <li>#}
-{#                    <a href="blog-masonry-sidebar-right.html">right sidebar</a>#}
-{#                </li>#}
+                <li>
+                    <a href="{% url 'users:shop_cart' %}">Корзина</a>
+                </li>
             </ul>
         </li>
         {% if user.is_admin or user.is_staff %} 
@@ -210,63 +181,8 @@
 <!-- li end -->
 				</ul>
 				<!-- Module Cart -->
-<div class="module module-cart pull-left">
-    <div class="module-icon cart-icon">
-        <i class="lnr lnr-store"></i>
-        <span class="title">shop cart</span>
-        <label class="module-label">2</label>
-    </div>
-    <div class="module-content module-box cart-box">
-        <div class="cart-overview">
-            <ul class="list-unstyled">
-                <li>
-                    <a href="#">
-						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/1.jpg" alt="product"/>
-					</a>
-                    <div class="product-meta">
-                        <h5 class="product-title"><a href="#">Gel Cream</a></h5>
-                        <p class="product-price">1 × $7.50</p>
-                    </div>
-                    <a class="cart-cancel" href="#">cancel</a>
-                </li>
-                <li>
-                    <a href="#">
-						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/2.jpg" alt="product"/>
-					</a>
-                    <div class="product-meta">
-                        <h5 class="product-title"><a href="#">Hair Dryer</a></h5>
-                        <p class="product-price">2 × $35.00</p>
-                    </div>
-                    <a class="cart-cancel" href="#">cancel</a>
-                </li>
-                <li>
-                    <a href="#">
-						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/3.jpg" alt="product"/>
-					</a>
-                    <div class="product-meta">
-                        <h5 class="product-title"><a href="#">Beard Razor</a></h5>
-                        <p class="product-price">1 × $39.00</p>
-                    </div>
-                    <a class="cart-cancel" href="#">cancel</a>
-                </li>
-            </ul>
-        </div>
-        <div class="cart-total">
-            <div class="total-desc">
-                Subtotal:
-            </div>
-            <div class="total-price">
-                $100.50
-            </div>
-        </div>
-        <div class="clearfix">
-        </div>
-        <div class="cart--control">
-            <a class="btn btn--primary btn--bordered btn--rounded btn--block" href="#">View Cart & Checkout</a>
-        </div>
-    </div>
-</div>
-<!-- .module-cart end -->
+    {% include "carts/includes/included_cart.html" %}
+                <!-- .module-cart end -->
 				<!-- Module Search -->
 <div class="module module-search pull-left">
     <div class="module-icon search-icon">
@@ -297,7 +213,7 @@
 				<!-- Module Cart -->
 				<div class="module module-cart pull-left">
 					<div class="module-icon">
-						<a class="btn btn--white btn--bordered btn--rounded" href="#">Book Online</a>
+						<a class="btn btn--white btn--bordered btn--rounded" href="#">Онлайн запись</a>
 					</div>
 				</div>
 				<!-- .module-cart end -->
@@ -307,41 +223,11 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-
 </header>
 
-
-
-    {% block index %}
+    {% block content %}
     {% endblock %}
-    
-    {% block men %}  
-    {% endblock %} 
-    
-    {% block junior %}    	
-    {% endblock %}
-    
-    {% block landing %}	
-    {% endblock %}
-
-    {% block shop %}
-    {% endblock %}
-
-    {% block catalog %}
-    {% endblock %}
-    
-    {% block user %}    	
-    {% endblock %}
-
-    {% block register %}
-    {% endblock %}
-    
-    {% block shop_cart %}    	
-    {% endblock %}
-    
-    {% block checkout %}    	
-    {% endblock %}
-
+  
 <!-- Footer #5
 ============================================= -->
 <footer id="footer" class="footer">

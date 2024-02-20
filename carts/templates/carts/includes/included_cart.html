@@ -1,0 +1,60 @@
+{% load static %}
+
+<!-- Module Cart -->
+<div class="module module-cart pull-left">
+    <div class="module-icon cart-icon">
+        <i class="lnr lnr-store"></i>
+        <span class="title">shop cart</span>
+        <label class="module-label">2</label>
+    </div>
+    <div class="module-content module-box cart-box">
+        <div class="cart-overview">
+            <ul class="list-unstyled">
+                <li>
+                    <a href="#">
+						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/1.jpg" alt="product"/>
+					</a>
+                    <div class="product-meta">
+                        <h5 class="product-title"><a href="#">Gel Cream</a></h5>
+                        <p class="product-price">1 × $7.50</p>
+                    </div>
+                    <a class="cart-cancel" href="#">cancel</a>
+                </li>
+                <li>
+                    <a href="#">
+						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/2.jpg" alt="product"/>
+					</a>
+                    <div class="product-meta">
+                        <h5 class="product-title"><a href="#">Hair Dryer</a></h5>
+                        <p class="product-price">2 × $35.00</p>
+                    </div>
+                    <a class="cart-cancel" href="#">cancel</a>
+                </li>
+                <li>
+                    <a href="#">
+						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/3.jpg" alt="product"/>
+					</a>
+                    <div class="product-meta">
+                        <h5 class="product-title"><a href="#">Beard Razor</a></h5>
+                        <p class="product-price">1 × $39.00</p>
+                    </div>
+                    <a class="cart-cancel" href="{% url 'carts:cart_remove' 1%}">cancel</a>
+                </li>
+            </ul>
+        </div>
+        <div class="cart-total">
+            <div class="total-desc">
+                Subtotal:
+            </div>
+            <div class="total-price">
+                $100.50
+            </div>
+        </div>
+        <div class="clearfix">
+        </div>
+        <div class="cart--control">
+            <a class="btn btn--primary btn--bordered btn--rounded btn--block" href="#">View Cart & Checkout</a>
+        </div>
+    </div>
+</div>
+<!-- .module-cart end -->

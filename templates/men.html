@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block men %}
+{% block content %}
 
 <!-- Slider #1
 ============================================= -->
@@ -11,18 +11,18 @@
     <!-- Slide #1 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="{% static "assets/images/sliders/slide-bg/11.jpg" %}" alt="background">
+            <img src="{% static "assets/images/sliders/slide-bg/men.jpg" %}" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text--center">
-                        <div class="slide--headline">We Will Make You Stylish</div>
+                        <div class="slide--headline">Мы сделаем Вас стильным</div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text--center">
                         <div class="slide--bio">Preparing your money is a daunting challenge for today's investors and will give you a complete account of the system. </div>
                         <div class="slide-action">
-                            <a class="btn btn--primary btn--rounded" href="#">Read More </a>
+                            <a class="btn btn--white btn--bordered btn--rounded" href="{% url 'men' %}">Узнать больше </a>
                         </div>
                     </div>
 
@@ -37,19 +37,19 @@
     <!-- Slide #2 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="{% static "assets/images/sliders/slide-bg/22v2.png" %}" alt="background">
+            <img src="{% static "assets/images/sliders/slide-bg/women.jpg" %}" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text--center">
-                        <div class="slide--headline">We make amazing haircuts</div>
+                        <div class="slide--headline">Делаем восхитительные стрижки</div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text--center">
                         <div class="slide--bio">Preparing your money is a daunting challenge for today's investors and will give you a complete account of the system.</div>
                         <div class="slide-action">
-                            <a class="btn btn--secondary btn--white btn--rounded mr-10" href="#">Read More </a>
-                            <a class="btn btn--white btn--bordered btn--rounded" href="#">Get Started</a>
+                            <a class="btn btn--white btn--bordered btn--rounded" href="{% url 'index' %}">Узнать больше </a>
+{#                            <a class="btn btn--white btn--bordered btn--rounded" href="#">Get Started</a>#}
                         </div>
                     </div>
                 </div>
@@ -63,19 +63,19 @@
     <!-- Slide #3 -->
     <div class="slide--item bg-overlay bg-overlay-dark">
         <div class="bg-section">
-            <img src="{% static "assets/images/sliders/slide-bg/33.jpg" %}" alt="background">
+            <img src="{% static "assets/images/sliders/slide-bg/junior.jpg" %}" alt="background">
         </div>
         <div class="pos-vertical-center">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text--center">
-                        <div class="slide--headline">our clients trust us</div>
+                        <div class="slide--headline">Наши клиенты нам доверяют</div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 text--center">
                         <div class="slide--bio">Preparing your money is a daunting challenge for today's investors and will give you a complete account of the system.</div>
                         <div class="slide-action">
-                            <a class="btn btn--secondary btn--white btn--rounded mr-10" href="#">Read More </a>
-                            <a class="btn btn--white btn--bordered btn--rounded" href="#">Get Started</a>
+{#                            <a class="btn btn--secondary btn--white btn--rounded mr-10" href="#">Read More </a>#}
+                            <a class="btn btn--white btn--bordered btn--rounded" href="{% url 'junior' %}">Узнать больше</a>
                         </div>
                     </div>
                 </div>

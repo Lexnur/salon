@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block user %}	
+{% block content %}	
 
 <!-- Page Title #1
 ============================================= -->
@@ -35,8 +35,7 @@
         <div class="login__section section--padding">
             <div class="container">
                 <form action="{% url 'users:login' %}" method="post">
-                    {% csrf_token %}
-                    
+                    {% csrf_token %}                    
                     <div class="login__section--inner">
                         <div class="row row-cols-md-2 row-cols-1">
                             <div class="col">

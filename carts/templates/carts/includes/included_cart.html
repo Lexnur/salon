@@ -1,4 +1,7 @@
 {% load static %}
+{% load carts_tags %}
+{% user_carts request as carts %}
+
 
 <!-- Module Cart -->
 <div class="module module-cart pull-left">
@@ -8,46 +11,52 @@
         <label class="module-label">2</label>
     </div>
     <div class="module-content module-box cart-box">
+        {% for cart in carts %}  
         <div class="cart-overview">
             <ul class="list-unstyled">
                 <li>
-                    <a href="#">
-						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/1.jpg" alt="product"/>
+                    <a href="{{ cart.product.get_absolute_url }}">
+						{% if cart.product.image %}                      
+                            <img src="{{ cart.product.image.url }}" alt="{{ cart.product.name }}" />                                
+                        {% else %}
+                            <img src="{% static "assets/images/shop/not_found/not_found.jfif"%}" alt="{{ cart.product.name }}" />
+                        {% endif %} 
 					</a>
                     <div class="product-meta">
-                        <h5 class="product-title"><a href="#">Gel Cream</a></h5>
-                        <p class="product-price">1 × $7.50</p>
+                        <h5 class="product-title"><a href="{{ cart.product.get_absolute_url }}">{{ cart.product.name}}</a></h5>
+                        <p class="product-price">{{ cart.quantity }} x {{ cart.product.discount_price }} ₽ = {{ cart.products_price }} ₽</p>
                     </div>
                     <a class="cart-cancel" href="#">cancel</a>
                 </li>
-                <li>
-                    <a href="#">
-						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/2.jpg" alt="product"/>
-					</a>
-                    <div class="product-meta">
-                        <h5 class="product-title"><a href="#">Hair Dryer</a></h5>
-                        <p class="product-price">2 × $35.00</p>
-                    </div>
-                    <a class="cart-cancel" href="#">cancel</a>
-                </li>
-                <li>
-                    <a href="#">
-						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/3.jpg" alt="product"/>
-					</a>
-                    <div class="product-meta">
-                        <h5 class="product-title"><a href="#">Beard Razor</a></h5>
-                        <p class="product-price">1 × $39.00</p>
-                    </div>
-                    <a class="cart-cancel" href="{% url 'carts:cart_remove' 1%}">cancel</a>
-                </li>
+{#                <li>#}
+{#                    <a href="#">#}
+{#						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/2.jpg" alt="product"/>#}
+{#					</a>#}
+{#                    <div class="product-meta">#}
+{#                        <h5 class="product-title"><a href="#">Hair Dryer</a></h5>#}
+{#                        <p class="product-price">2 × $35.00</p>#}
+{#                    </div>#}
+{#                    <a class="cart-cancel" href="#">cancel</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="#">#}
+{#						<img class="img-responsive" src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/3.jpg" alt="product"/>#}
+{#					</a>#}
+{#                    <div class="product-meta">#}
+{#                        <h5 class="product-title"><a href="#">Beard Razor</a></h5>#}
+{#                        <p class="product-price">1 × $39.00</p>#}
+{#                    </div>#}
+{#                    <a class="cart-cancel" href="{% url 'carts:cart_remove' 1%}">cancel</a>#}
+{#                </li>#}
             </ul>
         </div>
+         {% endfor %}
         <div class="cart-total">
             <div class="total-desc">
-                Subtotal:
+                <strong>Итого:</strong>
             </div>
             <div class="total-price">
-                $100.50
+                <strong>{{ carts.total_price }} ₽ </strong>
             </div>
         </div>
         <div class="clearfix">
@@ -57,4 +66,5 @@
         </div>
     </div>
 </div>
+
 <!-- .module-cart end -->

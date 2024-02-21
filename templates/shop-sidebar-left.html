@@ -194,7 +194,7 @@
                             {% endif %} 
                             <div class="product--hover">
                                 <div class="product--action">
-                                    <a href="#">В корзину</a>
+                                    <a href="{% url 'cart:cart_add' product.slug %}">В корзину</a>
                                 </div>
                             </div>                              
                             <!-- .product-overlay end -->

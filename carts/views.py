@@ -7,7 +7,7 @@ from shop.models import Products
 def cart_add(request, product_slug):
     product = Products.objects.get(slug=product_slug)
     if request.user.is_authenticated:
-        carts = Cart.objects.first(user=request.user, product=product)
+        carts = Cart.objects.filter(user=request.user, product=product)
         if carts.exists():
             cart = carts.first()
             if cart:

@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 from shop.models import Products
 
@@ -34,4 +35,5 @@ class Cart(models.Model):
 
     def __str__(self):
         return f'Корзина {self.user.username} | Товар {self.product.name} | Количество {self.quantity}'
+
 

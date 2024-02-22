@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+    
+{% load carts_tags %}
+{% user_carts request as carts %}
 	
 <!-- Page Title #1
 ============================================= -->
@@ -41,7 +44,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="shop-cart-heading">
-                    You have (3 items)
+                    В вашей корзине: {{ carts.total_quantity }} товаров
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -50,100 +53,49 @@
                         <thead>
                             <tr class="cart-product">
                                 <th></th>
-                                <th class="cart-product-item">Name</th>
-                                <th class="cart-product-price">Price</th>
-                                <th class="cart-product-quantity">Quantity</th>
-                                <th class="cart-product-total">Total</th>
+                                <th class="cart-product-item">Название</th>
+                                <th class="cart-product-price">Цена</th>
+                                <th class="cart-product-quantity">Количество</th>
+                                <th class="cart-product-total">Итого</th>
                                 <th class="cart-product-remove"></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
+                        {% for cart in carts %}
                             <tr class="cart-product">
                                 <td></td>
                                 <td class="cart-product-item">
-
                                     <div class="cart-product-img">
-                                        <a href="#">
-											<img src="http://demo.zytheme.com/hairy/assets/images/shop/cart/1.jpg" alt="product"/>
-										</a>
+                                        <a href="{{ cart.product.get_absolute_url }}">
+						            {% if cart.product.image %}                      
+                                        <img src="{{ cart.product.image.url }}" alt="{{ cart.product.name }}" height="80" width="160">                                
+                                    {% else %}
+                                        <img src="{% static "assets/images/shop/not_found/not_found.jfif"%}" alt="{{ cart.product.name }}">
+                                    {% endif %} 
+					                    </a>
                                     </div>
                                     <div class="cart-product-name">
-                                        <h6><a href="#">Gel Cream</a></h6>
+                                        <h6><a href="{{ cart.product.get_absolute_url }}">{{ cart.product.name}}</a></h6>
                                     </div>
                                 </td>
-                                <td class="cart-product-price">$ 7.5</td>
+                                <td class="cart-product-price">{{ cart.product.discount_price }} ₽</td>
                                 <td class="cart-product-quantity">
                                     <div class="product-quantity">
                                         <span class="qant-plus"><i class="fa fa-caret-up"></i></span>
-                                        <input type="text" value="1" id="pro1-qunt" readonly>
+                                        <input type="text" value="{{ cart.quantity }}" id="pro1-qunt" readonly>
                                         <span class="qant-minus"><i class="fa fa-caret-down"></i></span>
                                     </div>
                                 </td>
-                                <td class="cart-product-total">$ 7.5</td>
+                                <td class="cart-product-total">{{ cart.products_price }} ₽</td>
                                 <td>
                                     <div class="cart-product-remove">
                                         <i class="lnr lnr-cross"></i>
                                     </div>
                                 </td>
                                 <td></td>
-                            </tr>
-                            <tr class="cart-product">
-                                <td></td>
-                                <td class="cart-product-item">
-                                    <div class="cart-product-img">
-                                        <a href="#">
-											<img src="http://demo.zytheme.com/hairy/assets/images/shop/cart/2.jpg" alt="product"/>
-										</a>
-                                    </div>
-                                    <div class="cart-product-name">
-                                        <h6><a href="#">Hair Dryer</a></h6>
-                                    </div>
-                                </td>
-                                <td class="cart-product-price">$ 35.00</td>
-                                <td class="cart-product-quantity">
-                                    <div class="product-quantity">
-                                        <span class="qant-plus"><i class="fa fa-caret-up"></i></span>
-                                        <input type="text" value="1" id="pro2-qunt" readonly>
-                                        <span class="qant-minus"><i class="fa fa-caret-down"></i></span>
-                                    </div>
-                                </td>
-                                <td class="cart-product-total">$ 35.00</td>
-                                <td>
-                                    <div class="cart-product-remove">
-                                        <i class="lnr lnr-cross"></i>
-                                    </div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr class="cart-product">
-                                <td></td>
-                                <td class="cart-product-item">
-                                    <div class="cart-product-img">
-                                        <a href="#">
-											<img src="http://demo.zytheme.com/hairy/assets/images/shop/cart/3.jpg" alt="product"/>
-										</a>
-                                    </div>
-                                    <div class="cart-product-name">
-                                        <h6><a href="#">Hair Brush</a></h6>
-                                    </div>
-                                </td>
-                                <td class="cart-product-price">$ 23.00</td>
-                                <td class="cart-product-quantity">
-                                    <div class="product-quantity">
-                                        <span class="qant-plus"><i class="fa fa-caret-up"></i></span>
-                                        <input type="text" value="1" id="pro3-qunt" readonly>
-                                        <span class="qant-minus"><i class="fa fa-caret-down"></i></span>
-                                    </div>
-                                </td>
-                                <td class="cart-product-total">$ 23.00</td>
-                                <td>
-                                    <div class="cart-product-remove">
-                                        <i class="lnr lnr-cross"></i>
-                                    </div>
-                                </td>
-                                <td></td>
-                            </tr>
+                            </tr>                           
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -160,7 +112,7 @@
                         <button type="submit" class="btn btn--secondary">Apply</button>
                     </form>
                     <div class="cart-total-amount text-right">
-                        Subtotal :<span class="">$100.5</span>
+                        Итого: <span class="">{{ carts.total_price }} ₽</span>
                     </div>
                     <!-- .cart-total-amount end -->
                 </div>
@@ -170,7 +122,7 @@
         <!-- .row end -->
         <div class="row">
             <div class="col-xs-12 col-md-12">
-                <a class="btn btn--secondary btn--rounded pull-right" href="#">Checkout</a>
+                <a class="btn btn--secondary btn--rounded pull-right" href="{% url 'users:checkout' %}">Оформить заказ</a>
             </div>
         </div>
     </div>

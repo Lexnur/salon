@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+    
+{% load carts_tags %}
+{% user_carts request as carts %}
 
    
 <!-- Page Title #1
@@ -399,21 +402,17 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="checkout-summary-box">
                     <div class="checkout-summary-heading">
-                        <h3>Order Summary</h3>
+                        <h3><strong>Ваш заказ:</strong></h3>
                     </div>
-                    <ul class="list-unstyled mb-0">
+                    {% for cart in carts %}
+                    <ul class="list-unstyled mb-0">                        
                         <li>
-                            1 × Gel Cream <span>$ 7.50</span>
-                        </li>
-                        <li>
-                            2 × Hair Dryer <span>$ 70.00</span>
-                        </li>
-                        <li>
-                            1 × Hair Brush <span>$ 23.00</span>
+                            {{ cart.quantity }} × {{ cart.product.name }} <span>{{ cart.products_price }} ₽</span>
                         </li>
                     </ul>
+                    {% endfor %}
                     <div class="checkout-cart-total">
-                        Total<span class="cart-product-total">$100.50</span>
+                        <strong>Итого к оплате:</strong><span class="cart-product-total"><strong>{{ carts.total_price }} ₽</strong></span>
                     </div>
                 </div>
             </div>

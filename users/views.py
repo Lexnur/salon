@@ -15,6 +15,9 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
+                redirect_page = request.POST.get('next', None)
+                if redirect_page and redirect_page != reverse('users:logouts'):
+                    return HttpResponseRedirect(request.POST.get('next'))
                 return HttpResponseRedirect(reverse('landing'))
     else:
         form = UserLoginForm()

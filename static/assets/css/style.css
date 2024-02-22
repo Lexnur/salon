@@ -5615,15 +5615,15 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   justify-content: space-between;
 }
 .cart-product-action .cart-total-amount {
-  color: #999999;
+  color: #363636;
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 40px;
   font-weight: 700;
   letter-spacing: 0.36px;
 }
 .cart-product-action .cart-total-amount span {
-  color: #363636;
+  color: #FFA07A;
   font-family: 'Open Sans', sans-serif;
   font-size: 24px;
 }
@@ -5667,9 +5667,9 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
 .cart-table .cart-product-name h6 {
   color: #333333;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 300;
   line-height: 1;
-  text-transform: capitalize;
+  text-transform: none;
   padding-top: 32px;
 }
 .cart-table .cart-product-name h6 a {
@@ -6488,7 +6488,7 @@ ul.comments-list ul.comment-children ul .comment-body .comment {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   font-weight: 700;
-  text-transform: capitalize;
+  text-transform: none;
   line-height: 1;
 }
 .checkout-summary .checkout-cart-total span {

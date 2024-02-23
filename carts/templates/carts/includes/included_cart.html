@@ -26,7 +26,7 @@
                         <h5 class="product-title"><a href="{{ cart.product.get_absolute_url }}">{{ cart.product.name}}</a></h5>
                         <p class="product-price">{{ cart.quantity }} x {{ cart.product.discount_price }} ₽ = {{ cart.products_price }} ₽</p>
                     </div>
-                    <a class="cart-cancel" href="#">cancel</a>
+                    <a class="cart-cancel" href="{% url 'carts:cart_remove' cart.id %}">cancel</a>
                 </li>
             </ul>
         </div>
@@ -41,9 +41,11 @@
         </div>
         <div class="clearfix">
         </div>
+    {% if carts %} 	    
         <div class="cart--control">
             <a class="btn btn--primary btn--bordered btn--rounded btn--block" href="{% url 'users:checkout' %}">Оформить заказ</a>
         </div>
+    {% endif %} 
     </div>
 </div>
 

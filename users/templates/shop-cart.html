@@ -90,7 +90,7 @@
                                 <td class="cart-product-total">{{ cart.products_price }} ₽</td>
                                 <td>
                                     <div class="cart-product-remove">
-                                        <i class="lnr lnr-cross"></i>
+                                        <a class="cart-cancel" href="{% url 'carts:cart_remove' cart.id %}"><i class="lnr lnr-cross"></i></a>                                        
                                     </div>
                                 </td>
                                 <td></td>
@@ -120,11 +120,13 @@
             <!-- .col-md-6 end -->
         </div>
         <!-- .row end -->
+        {% if carts %}
         <div class="row">
             <div class="col-xs-12 col-md-12">
                 <a class="btn btn--secondary btn--rounded pull-right" href="{% url 'users:checkout' %}">Оформить заказ</a>
             </div>
         </div>
+    {% endif %}
     </div>
     <!-- .container end -->
 </section>

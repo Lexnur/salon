@@ -3314,9 +3314,9 @@ ul.dropdown-menu > li.has-dropdown > a:before {
 .cart-box .cart-overview h5 {
   color: #ffffff;
   font-size: 12px;
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 0;
-  line-height: 28px;
+  line-height: 15px;
   font-weight: 400;
 }
 .cart-box .cart-overview h5 a {

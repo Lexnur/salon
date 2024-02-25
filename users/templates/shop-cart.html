@@ -82,9 +82,12 @@
                                 <td class="cart-product-price">{{ cart.product.discount_price }} ₽</td>
                                 <td class="cart-product-quantity">
                                     <div class="product-quantity">
-                                        <span class="qant-plus"><i class="fa fa-caret-up"></i></span>
-                                        <input type="text" value="{{ cart.quantity }}" id="pro1-qunt" readonly>
-                                        <span class="qant-minus"><i class="fa fa-caret-down"></i></span>
+                                        
+                                        <span class="qant-plus" ><i class="fa fa-caret-up" data-cart-id="{{ cart.id }}" 
+                                        data-cart-change-url="{% url 'carts:cart_change' %}" >{% csrf_token %}</i></span>
+                                        <input type="text" value="{{ cart.quantity }}"  readonly>
+                                        <span class="qant-minus" >{% csrf_token %}<i class="fa fa-caret-down" data-cart-id="{{ cart.id }}" 
+                                              data-cart-change-url="{% url 'carts:cart_change' %}"></i></span>
                                     </div>
                                 </td>
                                 <td class="cart-product-total">{{ cart.products_price }} ₽</td>

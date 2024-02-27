@@ -44,26 +44,27 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-7">
                 <div class="checkout-form">
-                    <h3>Billing Details</h3>
-                    <form class="mb-0">
+                    <h3>Детали доставки</h3>
+                    <form class="mb-0" action="{% url 'users:checkout' %}" method="post">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-6">
-                                <input type="text" class="form-control" name="first-name" id="name" placeholder="First name *" required>
+                                <input type="text" class="form-control" name="first_name" id="id_first_name" placeholder="Имя *" required>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
-                                <input type="text" class="form-control" name="last-name" id="name" placeholder="Last name *" required>
+                                <input type="text" class="form-control" name="last_name" id="id_last_name" placeholder="Фамилия *" required>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
-                                <input type="email" class="form-control" name="contact-email" id="email" placeholder="Email address *" required>
+                                <input type="email" class="form-control" name="email" id="id_email" placeholder="Email *" required>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="phone *" required>
+                                <input type="text" class="form-control" name="phone_number" id="id_phone_number" placeholder="Номер телефона *" required>
                             </div>
                             <div class="col-xs-12 col-md-12">
                                 <div class="form-select">
                                     <i class="fa fa-angle-down"></i>
                                     <select class="form-control">
-                                    <option value="">Country *</option>
+                                    <option value="">Страна *</option>
                                     <option value="USA">USA</option>
                                     <option value="AFG">Afghanistan</option>
                                     <option value="ALA">Åland Islands</option>
@@ -317,31 +318,43 @@
                                 </select>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <input type="text" class="form-control" name="Billing-address" id="address" placeholder="Billing address 2 (optional)">
+                            < class="col-xs-12 col-sm-12 col-md-12">
+                                <input type="text" class="form-control" name="delivery_address" id="id_delivery_address"
+                                       value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}" placeholder="Адрес доставки *">
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
-                                <input type="text" class="form-control" name="City" id="City" placeholder="City *" required>
+                                <input type="text" class="form-control" name="city" id="id_city" placeholder="Город *" required>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
-                                <input type="text" class="form-control" name="zip-code" id="zip-code" placeholder="Zip code *" required>
+                                <input type="text" class="form-control" name="zip_code" id="id_zip_code" placeholder="Индекс *" required>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="input-checkbox">
-                                    <label class="label-checkbox">
-									  <input type="checkbox" name="create-account" id="create-account">
-									  <div class="check-indicator"></div>
-									</label>
-                                    <span>I have read and agree to the terms and conditions</span>
-                                </div>
+                            <div class="checkout-summary-heading">
+                                <h3>Способ оплаты</h3>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <input type="submit" value="Signup" name="submit" class="btn btn--secondary btn--rounded mt-30">
+{#                            <section id="checkoutPayment" class="payment-methods pt-0">#}
+                            <fieldset class="radiogroup mb-0">
+                            <div class="input-radio">
+                                <span class="input-option">Картой онлайн</span>
+                                <label class="label-radio" >
+									<input type="radio" name="payment_on_get" id="id_payment_on_get" value="0" checked>
+									<div class="radio-indicator"></div>
+								</label>
                             </div>
+
+                            <div class="input-radio">
+                                <span class="input-option">Наличными про получении</span>
+                                <label class="label-radio">
+									<input type="radio" name="payment_on_get" id="id_payment_on_get" value="1">
+									<div class="radio-indicator"></div>
+								</label>
+                            </div>        
+                        </fieldset>
+{#                            </section>#}
                         </div>
                     </form>
                 </div>
             </div>
+        
             <!-- .col-md-7 end -->
             {% if not user.is_authenticated %}
             <div class="col-xs-12 col-sm-12 col-md-5">
@@ -428,45 +441,44 @@
 ============================================= -->
 <section id="checkoutPayment" class="payment-methods pt-0">
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="checkout-payment-box">
-                    <div class="checkout-summary-heading">
-                        <h3>Payment Method</h3>
-                    </div>
-                    <form class=" mb-0">
-                        <fieldset class="radiogroup mb-0">
-                            <div class="input-radio">
-                                <span class="input-option">Credit Card</span>
-                                <label class="label-radio">
-									<input type="radio" name="radio1" value="option1" checked>
-									<div class="radio-indicator"></div>
-								</label>
-                            </div>
-                            <div class="input-radio">
-                                <span class="input-option">Paypal</span>
-                                <label class="label-radio">
-									<input type="radio" name="radio2" value="option2">
-									<div class="radio-indicator"></div>
-								</label>
-                            </div>
-                            <div class="input-radio">
-                                <span class="input-option">Cash on Delivery</span>
-                                <label class="label-radio">
-									<input type="radio" name="radio3" value="option3">
-									<div class="radio-indicator"></div>
-								</label>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </div>
+{#        <div class="row">#}
+{#            <div class="col-xs-12 col-sm-12 col-md-12">#}
+{#                <div class="checkout-payment-box">#}
+{#                    <div class="checkout-summary-heading">#}
+{#                        <h3>Способ оплаты</h3>#}
+{#                    </div>#}
+{#                    <form class=" mb-0">                       #}
+{#                        <fieldset class="radiogroup mb-0">#}
+{#                            <div class="input-radio">#}
+{#                                <span class="input-option">Credit Card</span>#}
+{#                                <label class="label-radio">#}
+{#									<input type="radio" name="radio1" value="option1" checked>#}
+{#									<div class="radio-indicator"></div>#}
+{#								</label>#}
+{#                            </div>#}
+{#                            <div class="input-radio">#}
+{#                                <span class="input-option">Paypal</span>#}
+{#                                <label class="label-radio">#}
+{#									<input type="radio" name="radio2" value="option2">#}
+{#									<div class="radio-indicator"></div>#}
+{#								</label>#}
+{#                            </div>#}
+{#                            <div class="input-radio">#}
+{#                                <span class="input-option">Cash on Delivery</span>#}
+{#                                <label class="label-radio">#}
+{#									<input type="radio" name="radio3" value="option3">#}
+{#									<div class="radio-indicator"></div>#}
+{#								</label>#}
+{#                            </div>#}
+{#                        </fieldset>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
         <!-- .row end -->
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                
-                <input type="submit" value="Place Order" name="submit" class="btn btn--secondary btn--rounded pull-right mt-40">
+            <div class="col-xs-12 col-sm-12 col-md-12">                
+                <input type="submit" value="Оплатить" name="submit" class="btn btn--secondary btn--rounded pull-right mt-40">
             </div>
         </div>
         <!-- .row end -->

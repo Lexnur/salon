@@ -318,9 +318,9 @@
                                 </select>
                                 </div>
                             </div>
-                            < class="col-xs-12 col-sm-12 col-md-12">
-                                <input type="text" class="form-control" name="delivery_address" id="id_delivery_address"
-                                       value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}" placeholder="Адрес доставки *">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <input type="text" class="form-control" name="delivery_address" id="id_delivery_address" 
+                                       value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}" placeholder="Адрес доставки *" required>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <input type="text" class="form-control" name="city" id="id_city" placeholder="Город *" required>
@@ -347,6 +347,7 @@
 									<input type="radio" name="payment_on_get" id="id_payment_on_get" value="1">
 									<div class="radio-indicator"></div>
 								</label>
+                                <input type="submit" value="Оплатить" name="submit" class="btn btn--secondary btn--rounded pull-right mt-40">
                             </div>        
                         </fieldset>
 {#                            </section>#}
@@ -441,41 +442,6 @@
 ============================================= -->
 <section id="checkoutPayment" class="payment-methods pt-0">
     <div class="container">
-{#        <div class="row">#}
-{#            <div class="col-xs-12 col-sm-12 col-md-12">#}
-{#                <div class="checkout-payment-box">#}
-{#                    <div class="checkout-summary-heading">#}
-{#                        <h3>Способ оплаты</h3>#}
-{#                    </div>#}
-{#                    <form class=" mb-0">                       #}
-{#                        <fieldset class="radiogroup mb-0">#}
-{#                            <div class="input-radio">#}
-{#                                <span class="input-option">Credit Card</span>#}
-{#                                <label class="label-radio">#}
-{#									<input type="radio" name="radio1" value="option1" checked>#}
-{#									<div class="radio-indicator"></div>#}
-{#								</label>#}
-{#                            </div>#}
-{#                            <div class="input-radio">#}
-{#                                <span class="input-option">Paypal</span>#}
-{#                                <label class="label-radio">#}
-{#									<input type="radio" name="radio2" value="option2">#}
-{#									<div class="radio-indicator"></div>#}
-{#								</label>#}
-{#                            </div>#}
-{#                            <div class="input-radio">#}
-{#                                <span class="input-option">Cash on Delivery</span>#}
-{#                                <label class="label-radio">#}
-{#									<input type="radio" name="radio3" value="option3">#}
-{#									<div class="radio-indicator"></div>#}
-{#								</label>#}
-{#                            </div>#}
-{#                        </fieldset>#}
-{#                    </form>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-        <!-- .row end -->
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">                
                 <input type="submit" value="Оплатить" name="submit" class="btn btn--secondary btn--rounded pull-right mt-40">

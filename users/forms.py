@@ -1,3 +1,5 @@
+import re
+
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
@@ -17,6 +19,15 @@ class CreateOrderForm(forms.Form):
             ("1", 'True'),
         ],
     )
+
+    def clean_phone_number(self):
+        data = self.cleaned_data['phone_number']
+
+        pattern = re.compile(r'^((\+7|7|8)+([0-9]){10})$')
+        if not pattern.match(data):
+            raise forms.ValidationError("Неверный формат номера")
+
+        return data
 
 
 class UserLoginForm(AuthenticationForm):

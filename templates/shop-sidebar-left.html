@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load shop_tags %}
 {% block content %}
 
 <!-- Page Title #1
@@ -48,10 +48,11 @@
     <div class="widget--content">
         <form class="form-search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search here..">
+                <form class="form-search" action="{% url 'shop:search' %}" method='get' >
+                <input type="search" class="form-control" name="q" placeholder="Поиск...">
                 <span class="input-group-btn">
 					<button class="btn" type="button"><i class="fa fa-search"></i></button>
-				</span>
+                </span></form>
             </div>
             <!-- /input-group -->
         </form>
@@ -63,86 +64,91 @@
 ============================================= -->
 <div class="widget widget-categories">
     <div class="widget--title">
-        <h5>categories</h5>
+        <h5>Категории</h5>
     </div>
+{#    {% tag_categories as categories %}#}
+    {% for product in cat_prod %}
+    	
+    
+    
     <div class="widget--content">
-        <ul class="list-unstyled">
+        <ul class="list-unstyled">           
             <li>
-                <a href="#">Clippers</a>
-            </li>
-            <li>
-                <a href="#">Brushes</a>
-            </li>
-            <li>
-                <a href="#">Creams & Soaps</a>
-            </li>
-            <li>
-                <a href="#">After Shaves</a>
-            </li>
-            <li>
-                <a href="#">Razors</a>
-            </li>
+                <a href="">{{ product.name }}</a>
+            </li>            
+{#            <li>#}
+{#                <a href="#">Brushes</a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">Creams & Soaps</a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">After Shaves</a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="#">Razors</a>#}
+{#            </li>#}
         </ul>
-    </div>
+    </div>{% endfor %}
 </div>
 <!-- .widget-categories end -->
 <!-- Recent Products
 ============================================= -->
-<div class="widget widget-recent-products">
-    <div class="widget--title">
-        <h5>Best Sellers</h5>
-    </div>
-    <div class="widget--content">
-        <!-- Product #1 -->
-        <div class="product clearfix">
-            <a href="#">
-				<img src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/1.jpg" alt="product"/>
-			</a>
-            <div class="product-desc">
-                <div class="product-title">
-                    <a href="#">Gel Cream</a>
-                </div>
-                <div class="product-meta">
-                    <span>$7.52</span>
-                </div>
-            </div>
-        </div>
-        <!-- .recent-product end -->
-
-        <!-- Product #2 -->
-        <div class="product clearfix">
-            <a href="#">
-				<img src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/2.jpg" alt="product"/>
-			</a>
-            <div class="product-desc">
-                <div class="product-title">
-                    <a href="#">Hair Dryer</a>
-                </div>
-                <div class="product-meta">
-                    <span>$35.00</span>
-                </div>
-            </div>
-        </div>
-        <!-- .recent-product end -->
-
-        <!-- Product #3 -->
-        <div class="product clearfix">
-            <a href="#">
-				<img src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/3.jpg" alt="product"/>
-			</a>
-            <div class="product-desc">
-                <div class="product-title">
-                    <a href="#">Hair Brush</a>
-                </div>
-                <div class="product-meta">
-                    <span>$23.00</span>
-                </div>
-            </div>
-        </div>
-        <!-- .recent-product end -->
-    </div>
-
-</div>
+{#<div class="widget widget-recent-products">#}
+{#    <div class="widget--title">#}
+{#        <h5>Best Sellers</h5>#}
+{#    </div>#}
+{#    <div class="widget--content">#}
+{#        <!-- Product #1 -->#}
+{#        <div class="product clearfix">#}
+{#            <a href="#">#}
+{#				<img src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/1.jpg" alt="product"/>#}
+{#			</a>#}
+{#            <div class="product-desc">#}
+{#                <div class="product-title">#}
+{#                    <a href="#">Gel Cream</a>#}
+{#                </div>#}
+{#                <div class="product-meta">#}
+{#                    <span>$7.52</span>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- .recent-product end -->#}
+{##}
+{#        <!-- Product #2 -->#}
+{#        <div class="product clearfix">#}
+{#            <a href="#">#}
+{#				<img src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/2.jpg" alt="product"/>#}
+{#			</a>#}
+{#            <div class="product-desc">#}
+{#                <div class="product-title">#}
+{#                    <a href="#">Hair Dryer</a>#}
+{#                </div>#}
+{#                <div class="product-meta">#}
+{#                    <span>$35.00</span>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- .recent-product end -->#}
+{##}
+{#        <!-- Product #3 -->#}
+{#        <div class="product clearfix">#}
+{#            <a href="#">#}
+{#				<img src="http://demo.zytheme.com/hairy/assets/images/shop/thumb/3.jpg" alt="product"/>#}
+{#			</a>#}
+{#            <div class="product-desc">#}
+{#                <div class="product-title">#}
+{#                    <a href="#">Hair Brush</a>#}
+{#                </div>#}
+{#                <div class="product-meta">#}
+{#                    <span>$23.00</span>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- .recent-product end -->#}
+{#    </div>#}
+{##}
+{#</div>#}
 <!-- .widget-recent end -->
 
 <!-- Filter
@@ -164,19 +170,19 @@
 
 <!-- Tag Clouds
 ============================================= -->
-<div class="widget widget-tags">
-    <div class="widget--title">
-        <h5>tag clouds</h5>
-    </div>
-    <div class="widget--content">
-        <a href="#">Hairstyle</a>
-        <a href="#">Shave</a>
-        <a href="#">Clipper</a>
-        <a href="#">Trim</a>
-        <a href="#">Cream</a>
-        <a href="#">Razor</a>
-    </div>
-</div>
+{#<div class="widget widget-tags">#}
+{#    <div class="widget--title">#}
+{#        <h5>tag clouds</h5>#}
+{#    </div>#}
+{#    <div class="widget--content">#}
+{#        <a href="#">Hairstyle</a>#}
+{#        <a href="#">Shave</a>#}
+{#        <a href="#">Clipper</a>#}
+{#        <a href="#">Trim</a>#}
+{#        <a href="#">Cream</a>#}
+{#        <a href="#">Razor</a>#}
+{#    </div>#}
+{#</div>#}
 <!-- .widget-tags end -->
             </div>
             <!-- .col-md-3 end -->

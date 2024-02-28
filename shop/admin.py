@@ -1,5 +1,5 @@
 from django.contrib import admin
-from shop.models import Categories, Products
+from shop.models import Categories, Products, CategoryProduct
 
 
 @admin.register(Categories)
@@ -16,6 +16,13 @@ class ProductsAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     list_filter = ('name', 'availability', 'category')
 
+
+# @admin.register(CategoryProduct)
+# class CategoryProductAdmin(admin.ModelAdmin):
+#     prepopulated_fields = {'slug': ('name',)}
+#     list_display = ('name',)
+
+admin.site.register(CategoryProduct)
 
 
 

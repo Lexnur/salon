@@ -14,6 +14,17 @@ class Categories(models.Model):
         return self.name
 
 
+class CategoryProduct(models.Model):
+    name = models.CharField(max_length=150, verbose_name='Название категории')
+    slug = models.SlugField(max_length=200, unique=True, null=True, blank=True, verbose_name='URL')
+
+    class Meta:
+        verbose_name = "Вид товара"
+
+    def __str__(self):
+        return self.name
+
+
 class Products(models.Model):
     name = models.CharField(max_length=150, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, null=True, blank=True, verbose_name='URL')
@@ -26,6 +37,8 @@ class Products(models.Model):
     discount = models.DecimalField(default=0.00, max_digits=7, decimal_places=2, verbose_name='Скидка в %')
     # quantity = models.PositiveIntegerField(default=0, verbose_name='Количество')
     category = models.ForeignKey(to=Categories, on_delete=models.CASCADE, verbose_name='Категория')
+    category_product = models.ForeignKey(to=CategoryProduct, on_delete=models.CASCADE, null=True, blank=True,
+                                         verbose_name='Вид товара')
     availability = models.BooleanField(default=True, verbose_name='Наличие')
 
     class Meta:

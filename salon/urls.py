@@ -28,6 +28,8 @@ urlpatterns = [
     path('cart/', include('carts.urls', namespace='cart')),
     # path('orders/', include('orders.urls', namespace='orders')),
 ]
+handler404 = 'salon.views.page_not_found'
+
 
 if settings.DEBUG:
     urlpatterns += [

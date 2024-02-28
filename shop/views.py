@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_list_or_404
-from shop.models import Products
+from shop.models import Products, CategoryProduct
 from shop.utils import q_search
 
 
@@ -15,10 +15,12 @@ def shop(request, category_slug=None):
         products = get_list_or_404(Products.objects.filter(category__slug=category_slug))
     paginator = Paginator(products, 12)  # Какое кол-во товаров отображать на каждой странице
     page = paginator.page(int(page))
+    cat_prod = CategoryProduct.objects.all()
     context = {
         'title': 'Shop home page',
         'products': page,
         'slug_url': category_slug,
+        'cat_prod': cat_prod,
     }
     return render(request, 'shop-sidebar-left.html', context)
 

@@ -84,20 +84,21 @@ def checkout(request):
                             product = cart_item.product
                             name = cart_item.product.name
                             price = cart_item.product.discount_price()
-                            # quantity = cart_item.quantity
-                            #
-                            # if product.quantity < quantity:
-                            #     raise ValidationError(f'Недостаточное количество товара {name} на складе\
-                            #                                В наличии - {product.quantity}')
+                            quantity = cart_item.quantity
+
+                            if product.quantity < quantity:
+                                return redirect(request.META['HTTP_REFERER'])
+                                # raise ValidationError(f'Недостаточное количество товара {name} на складе\
+                                #                            В наличии - {product.quantity}')
 
                             OrderItem.objects.create(
                                 order=order,
                                 product=product,
                                 name=name,
                                 price=price,
-                                # quantity=quantity,
+                                quantity=quantity,
                             )
-                            # product.quantity -= quantity
+                            product.quantity -= quantity
                             product.save()
 
                         # Очистить корзину пользователя после создания заказа
@@ -119,6 +120,7 @@ def checkout(request):
     context = {
         'title': 'Оформление заказа',
         'form': form,
+        'orders': True,
     }
     return render(request, 'shop-checkout.html', context)
 

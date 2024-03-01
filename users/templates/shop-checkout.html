@@ -37,9 +37,40 @@
 </section>
 <!-- #page-title end -->
 
+<!-- Checkout Summary 
+============================================= -->
+<section id="checkoutSummary" class="checkout-summary pt-30 pb-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="checkout-summary-box">
+                    <div class="checkout-summary-heading">
+                        <h3><strong>Ваш заказ:</strong></h3>
+                    </div>
+                    {% for cart in carts %}
+                    <ul class="list-unstyled mb-0">                        
+                        <li>
+                            {{ cart.quantity }} × {{ cart.product.name }} <span>{{ cart.products_price }} ₽</span>
+                        </li>
+                    </ul>
+                    {% endfor %}
+                    <div class="checkout-cart-total">
+                        <strong>Итого к оплате:</strong><span class="cart-product-total"><strong>{{ carts.total_price }} ₽</strong></span>
+                    </div>
+                </div>
+            </div>
+            <!-- .col-md-12 end -->
+        </div>
+        <!-- .row end -->
+    </div>
+    <!-- .container end -->
+</section>
+<!-- #checkoutSummary end -->
+    
+    
 <!-- Checkout Account
 ============================================= -->
-<section id="checkoutAcount" class="checkout pb-0">
+<div id="checkoutAcount" class="checkout pb-0">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-7">
@@ -340,7 +371,6 @@
 									<div class="radio-indicator"></div>
 								</label>
                             </div>
-
                             <div class="input-radio">
                                 <span class="input-option">Наличными про получении</span>
                                 <label class="label-radio">
@@ -349,7 +379,7 @@
 								</label>
                                 <input type="submit" value="Оплатить" name="submit" class="btn btn--secondary btn--rounded pull-right mt-40">
                             </div>        
-                        </fieldset>
+                            </fieldset>
 {#                            </section>#}
                         </div>
                     </form>
@@ -405,52 +435,23 @@
         <!-- .row end -->
     </div>
     <!-- .container end -->
-</section>
+</div>
 <!-- #checkoutAcount end -->
 
-<!-- Checkout Summary 
-============================================= -->
-<section id="checkoutSummary" class="checkout-summary pt-30 pb-30">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="checkout-summary-box">
-                    <div class="checkout-summary-heading">
-                        <h3><strong>Ваш заказ:</strong></h3>
-                    </div>
-                    {% for cart in carts %}
-                    <ul class="list-unstyled mb-0">                        
-                        <li>
-                            {{ cart.quantity }} × {{ cart.product.name }} <span>{{ cart.products_price }} ₽</span>
-                        </li>
-                    </ul>
-                    {% endfor %}
-                    <div class="checkout-cart-total">
-                        <strong>Итого к оплате:</strong><span class="cart-product-total"><strong>{{ carts.total_price }} ₽</strong></span>
-                    </div>
-                </div>
-            </div>
-            <!-- .col-md-12 end -->
-        </div>
-        <!-- .row end -->
-    </div>
-    <!-- .container end -->
-</section>
-<!-- #checkoutSummary end -->
-
+<
 <!-- checkout Payment
 ============================================= -->
-<section id="checkoutPayment" class="payment-methods pt-0">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">                
-                <input type="submit" value="Оплатить" name="submit" class="btn btn--secondary btn--rounded pull-right mt-40">
-            </div>
-        </div>
-        <!-- .row end -->
-    </div>
-    <!-- .container end -->
-</section>
+{#<section id="checkoutPayment" class="payment-methods pt-0">#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-xs-12 col-sm-12 col-md-12">                #}
+{#                <input type="submit" value="Оплатить" name="submit" class="btn btn--secondary btn--rounded pull-right mt-40">#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- .row end -->#}
+{#    </div>#}
+{#    <!-- .container end -->#}
+{#</section>#}
 <!-- #checkoutPayment end -->
 	
 {% endblock %}
